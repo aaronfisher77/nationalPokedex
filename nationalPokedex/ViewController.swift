@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameOrIDTextView: UITextField!
     @IBOutlet weak var infoTextView: UITextView!
     
-    let pokedexAPIBaseURL = "https://pokeapi.co/api/v2/"
+    let pokedexAPIBaseURL = "https://pokeapi.co/api/v2/pokemon/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,19 +34,15 @@ class ViewController: UIViewController {
         
         // Clearing out text field
         nameOrIDTextView.text = ""
-
-        
-        //Replacing spaces in the name/title with + so they can be used as a part of the URL
-        let pokemonNameURLComponant = pokemonName.replacingOccurrences(of: " ", with: "+")
         
         //Building our complete request url with name/song
-        let requestURL = pokedexAPIBaseURL + pokemonNameURLComponant
+        let requestURL = pokedexAPIBaseURL + pokemonName
         
         Alamofire.request(requestURL).responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.infoTextView.text = json[].stringValue
+                self.infoTextView.text = String(describing: json)
             case .failure(let error):
                 self.infoTextView.text = "Invalid Selection entered or an error occured. Please try again!"
                 print(error.localizedDescription)
