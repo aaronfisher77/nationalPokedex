@@ -77,6 +77,8 @@ class ViewController: UIViewController {
                 
             case .failure(let error):
                 self.nameLabel.text = "That's not a Pokemon... Sorry pal"
+                self.view.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 255/255)
+                self.halfView.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 255/255)
                 print(error.localizedDescription)
             }
         }
