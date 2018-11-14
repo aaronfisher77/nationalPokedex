@@ -13,25 +13,21 @@ import SDWebImage
 
 class ViewController: UIViewController {
     
+    // Variables
     @IBOutlet weak var nameOrIDTextView: UITextField!
-
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var pokemonUIImageView: UIImageView!
-    
     @IBOutlet weak var halfView: UIView!
     
+    // URL for pokedex api
     let pokedexAPIBaseURL = "https://pokeapi.co/api/v2/pokemon/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-
+    //Submit Button
     @IBAction func submitButton(_ sender: Any) {
-        
-        
-        
         //Dismissing Keyboared
         nameOrIDTextView.resignFirstResponder()
         
@@ -58,9 +54,11 @@ class ViewController: UIViewController {
                 self.nameLabel.text = json["name"].stringValue.uppercased()
                 let pokemonImageURL = json["sprites"]["front_default"].stringValue
                 
+                //creates variablesfor pokemon types
                 var typeOne: String
                 var typeTwo: String
                 
+                // Pulls the type of the pokemon out of the
                 if json["types"].arrayValue.count == 1 {
                     typeOne = (json["types"].arrayValue)[0]["type"]["name"].stringValue
                     typeTwo = (json["types"].arrayValue)[0]["type"]["name"].stringValue
@@ -70,16 +68,21 @@ class ViewController: UIViewController {
                     typeTwo = (json["types"].arrayValue)[1]["type"]["name"].stringValue
                     print(typeOne, typeTwo)
                 }
+                // calls the function
+                typeToColor(typeOne: typeOne, typeTwo: typeTwo)
                 
-            typeToColor(typeOne: typeOne, typeTwo: typeTwo)
+                // gets the Image
                 guard let pokemonImage = URL(string: pokemonImageURL) else {
                     break
                 }
-
-                self.pokemonUIImageView!.sd_setImage(with: pokemonImage)
                 
-            case .failure(let error):
+                // sets the image to the UIImage
+                self.pokemonUIImageView!.sd_setImage(with: pokemonImage)
+            
+            case .failure(let error): // an error that will appears when
                 self.nameLabel.text = "That's not a Pokemon... Sorry pal"
+                
+                // sets backround colors to default
                 self.view.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 255/255)
                 self.halfView.backgroundColor = UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 255/255)
                 print(error.localizedDescription)
@@ -87,8 +90,10 @@ class ViewController: UIViewController {
         }
         
         
-        
+        // calls the function that takes the string that we got from the JSON and truns it into colors that are placed in the backround
         func typeToColor(typeOne: String, typeTwo: String) {
+            
+            // Sets typeOne string to a UIColor
             switch typeOne {
             case "normal":
                 self.view.backgroundColor = UIColor(red: 168 / 255, green: 167 / 255, blue: 122 / 255, alpha: 255/255)
@@ -130,7 +135,7 @@ class ViewController: UIViewController {
                 self.view.backgroundColor = UIColor(red: 236 / 255, green: 154 / 255, blue: 172 / 255, alpha: 255/255)
             }
             
-            
+            // Sets typeTwo string to a UIColor
             switch typeTwo {
             case "normal":
                 self.halfView.backgroundColor = UIColor(red: 168 / 255, green: 167 / 255, blue: 122 / 255, alpha: 255/255)
