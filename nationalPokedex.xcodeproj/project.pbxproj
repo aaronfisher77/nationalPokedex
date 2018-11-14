@@ -13,6 +13,7 @@
 		C806CDA52199DFB100BDD680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C806CDA32199DFB100BDD680 /* Main.storyboard */; };
 		C806CDA72199DFB200BDD680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C806CDA62199DFB200BDD680 /* Assets.xcassets */; };
 		C806CDAA2199DFB200BDD680 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C806CDA82199DFB200BDD680 /* LaunchScreen.storyboard */; };
+		C8E0A58F219C7DD1006BA1A1 /* pokemonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E0A58E219C7DD1006BA1A1 /* pokemonVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		C806CDA62199DFB200BDD680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C806CDA92199DFB200BDD680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C806CDAB2199DFB200BDD680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8E0A58E219C7DD1006BA1A1 /* pokemonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pokemonVC.swift; sourceTree = "<group>"; };
 		E48FDFC035247BD206AE61B6 /* Pods-nationalPokedex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nationalPokedex.release.xcconfig"; path = "Pods/Target Support Files/Pods-nationalPokedex/Pods-nationalPokedex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				C806CD9F2199DFB100BDD680 /* AppDelegate.swift */,
 				C806CDA12199DFB100BDD680 /* ViewController.swift */,
 				C806CDA32199DFB100BDD680 /* Main.storyboard */,
+				C8E0A58E219C7DD1006BA1A1 /* pokemonVC.swift */,
 				C806CDA62199DFB200BDD680 /* Assets.xcassets */,
 				C806CDA82199DFB200BDD680 /* LaunchScreen.storyboard */,
 				C806CDAB2199DFB200BDD680 /* Info.plist */,
@@ -206,6 +209,7 @@
 			files = (
 				C806CDA22199DFB100BDD680 /* ViewController.swift in Sources */,
 				C806CDA02199DFB100BDD680 /* AppDelegate.swift in Sources */,
+				C8E0A58F219C7DD1006BA1A1 /* pokemonVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

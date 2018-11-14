@@ -30,6 +30,8 @@ class ViewController: UIViewController {
 
     @IBAction func submitButton(_ sender: Any) {
         
+        
+        
         //Dismissing Keyboared
         nameOrIDTextView.resignFirstResponder()
         
@@ -53,7 +55,7 @@ class ViewController: UIViewController {
             case .success(let value):
                 let json = JSON(value)
                 
-                self.nameLabel.text = json["name"].stringValue
+                self.nameLabel.text = json["name"].stringValue.uppercased()
                 let pokemonImageURL = json["sprites"]["front_default"].stringValue
                 
                 var typeOne: String
@@ -68,6 +70,7 @@ class ViewController: UIViewController {
                     typeTwo = (json["types"].arrayValue)[1]["type"]["name"].stringValue
                     print(typeOne, typeTwo)
                 }
+                
             typeToColor(typeOne: typeOne, typeTwo: typeTwo)
                 guard let pokemonImage = URL(string: pokemonImageURL) else {
                     break
