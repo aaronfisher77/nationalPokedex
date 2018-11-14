@@ -28,6 +28,12 @@ class ViewController: UIViewController {
     
     //Submit Button
     @IBAction func submitButton(_ sender: Any) {
+        
+        guard let pokemonInput = nameOrIDTextView.text, pokemonInput != "" else {
+            nameLabel.text = "Please Input the Name or ID of a Pokemon"
+            return
+        }
+        
         //Dismissing Keyboared
         nameOrIDTextView.resignFirstResponder()
         

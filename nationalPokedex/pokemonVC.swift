@@ -23,6 +23,7 @@ class pokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Create Alamo Fire request
         let alamofireRequest = Alamofire.request(url)
         
@@ -52,13 +53,8 @@ class pokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    
-    
-    
     @IBAction func backButton(_ sender: Any) {
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pokemonArray.count
@@ -70,9 +66,5 @@ class pokemonVC: UIViewController, UITableViewDelegate, UITableViewDataSource{
         cell?.textLabel?.text = pokemonArray[indexPath.row]
         
         return cell!
-
     }
-    
-    
-    
 }
